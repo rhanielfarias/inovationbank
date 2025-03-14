@@ -1,10 +1,12 @@
 package inovationbank.inovationbank.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
+@Entity
+@Table(name = "clientes")
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,12 +28,25 @@ public class Cliente {
     private LocalDate dataNascimento;
 
     @Column(nullable = false, updatable = false)
-    private LocalDateTime dataCadastro = LocalDateTime.now();
+    private LocalDateTime dataCadastro;
 
-    private  boolean ativo = true;
-
+    private  boolean ativo;
+@JsonIgnore
     @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
     private  ContaBancaria contaBancaria;
+
+    public Cliente() {
+        this.cpf = cpf;
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.dataNascimento = dataNascimento;
+        this.dataCadastro = LocalDateTime.now();
+        this.ativo = true;
+        this.contaBancaria = contaBancaria;
+    }
 
     public String getNome() {
         return nome;

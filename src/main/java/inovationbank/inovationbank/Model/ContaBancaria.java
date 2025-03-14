@@ -1,5 +1,6 @@
 package inovationbank.inovationbank.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import inovationbank.inovationbank.Enum.TipoConta;
 import jakarta.persistence.*;
 
@@ -24,20 +25,33 @@ public class ContaBancaria {
     private TipoConta tipoConta;
 
     @Column(nullable = false)
-    private BigDecimal saldo = BigDecimal.ZERO;
+    private BigDecimal saldo;
 
     @Column(nullable = false)
-    private BigDecimal saqueDiario = new BigDecimal("1000");
+    private BigDecimal saqueDiario;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
 
     @Column(nullable = false)
-    private boolean ativa = true;
+    private boolean ativa;
 
     @Column(nullable = false, updatable = false)
-    private LocalDateTime dataCriacao = LocalDateTime.now();
+    private LocalDateTime dataCriacao;
+
+    public ContaBancaria() {
+        this.agencia = agencia;
+        this.id = id;
+        this.numeroConta = numeroConta;
+        this.tipoConta = tipoConta;
+        this.saldo = BigDecimal.ZERO;
+        this.saqueDiario = new BigDecimal("1000");
+        this.cliente = cliente;
+        this.ativa = true;
+        this.dataCriacao = LocalDateTime.now();
+    }
 
     public String getNumeroConta() {
         return numeroConta;
