@@ -1,4 +1,4 @@
-package inovationbank.inovationbank.Model;
+package inovationbank.inovationbank.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

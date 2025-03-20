@@ -1,4 +1,4 @@
-package inovationbank.inovationbank.Model;
+package inovationbank.inovationbank.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import inovationbank.inovationbank.Enum.TipoConta;
@@ -42,13 +42,8 @@ public class ContaBancaria {
     private LocalDateTime dataCriacao;
 
     public ContaBancaria() {
-        this.agencia = agencia;
-        this.id = id;
-        this.numeroConta = numeroConta;
-        this.tipoConta = tipoConta;
         this.saldo = BigDecimal.ZERO;
         this.saqueDiario = new BigDecimal("1000");
-        this.cliente = cliente;
         this.ativa = true;
         this.dataCriacao = LocalDateTime.now();
     }

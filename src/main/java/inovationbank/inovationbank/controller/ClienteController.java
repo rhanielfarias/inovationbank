@@ -1,6 +1,6 @@
 package inovationbank.inovationbank.controller;
 
-import inovationbank.inovationbank.Model.Cliente;
+import inovationbank.inovationbank.model.Cliente;
 import inovationbank.inovationbank.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

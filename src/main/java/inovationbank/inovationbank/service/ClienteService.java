@@ -1,6 +1,6 @@
 package inovationbank.inovationbank.service;
 
-import inovationbank.inovationbank.Model.Cliente;
+import inovationbank.inovationbank.model.Cliente;
 import inovationbank.inovationbank.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
