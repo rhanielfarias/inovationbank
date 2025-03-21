@@ -1,5 +1,6 @@
 package inovationbank.inovationbank.service;
 
+import inovationbank.inovationbank.exception.ClienteJaPossuiContaException;
 import inovationbank.inovationbank.model.ContaBancaria;
 import inovationbank.inovationbank.repository.ContaBancariaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class ContaBancariaService {
     }
 
     public ContaBancaria cadastrar(ContaBancaria contaBancaria) {
+        if (contaBancariaRepository.findByClienteId(contaBancaria.getCliente().getId()).isPresent()) {
+            throw new ClienteJaPossuiContaException("Cliente já está ativo");
+        }
         return contaBancariaRepository.save(contaBancaria);
     }
 
