@@ -1,4 +1,4 @@
-package inovationbank.inovationbank.controller;
+    package inovationbank.inovationbank.controller;
 
 import inovationbank.inovationbank.model.ContaBancaria;
 import inovationbank.inovationbank.service.ContaBancariaService;
@@ -42,7 +42,7 @@ public class ContaBancariaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@RequestBody Long id) {
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
         contaBancariaService.deletar(id);
         return ResponseEntity.noContent().build();
 
